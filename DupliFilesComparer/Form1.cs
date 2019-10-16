@@ -92,6 +92,16 @@ namespace DupliFilesComparer
                 string file_path = value.ToString();
                 string dir = Path.GetDirectoryName(file_path);
                 string name = Path.GetFileName(file_path);
+
+                bool replace_flag = checkBox2.Checked;
+
+                if (replace_flag == true)
+                {
+                    string oldtext = textBox1_old.Text;
+                    string newtext = textBox2_new.Text;
+                    name = name.Replace(oldtext, newtext);
+                }
+
                 string to_path = to_directory + @"\" + name;
                 bool flag_move = false;
                 nao0x0.PC.DebugLog(to_path);
